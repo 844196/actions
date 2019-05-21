@@ -20,3 +20,21 @@ action "Update graph" {
   secrets = ["PIXELA_TOKEN"]
 }
 ```
+
+## `844196/actions/clasp`
+
+[google/clasp](https://github.com/google/clasp) helper.
+
+```workflow
+workflow "Push to GAS" {
+  on = "push"
+  resolves = ["clasp push"]
+}
+
+action "clasp push" {
+  uses = "844196/actions/clasp@master"
+  args = "push"
+  # copy from `~/.clasprc.json` and set to https://github.com/<user>/<repo>/settings/secrets
+  secrets = ["CLASPRC_JSON"]
+}
+```
